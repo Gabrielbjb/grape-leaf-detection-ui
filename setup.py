@@ -1,5 +1,6 @@
 from flask import * 
 import os
+from pcd import proses_anggur
 
 app = Flask(__name__)
 app.config['UPLOAD_FOLDER'] = '/static/uploads'
@@ -20,7 +21,9 @@ def success():
 
 @app.route('/uploads/<filename>')
 def display_image(filename):
-    return render_template('selesai.html', filename=filename)
+    lokasi = f"{os.getcwd()}/static/uploads/{filename}"
+    hasil = proses_anggur(lokasi.replace("\\","/"))
+    return render_template('selesai.html', filename=filename, judul=hasil[0], desk=hasil[1])
 
 @app.errorhandler(404)
 def page_not_found(e):
