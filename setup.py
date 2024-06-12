@@ -1,6 +1,6 @@
 from flask import * 
 import os
-from pcd import proses_anggur
+from proses_image import proses_anggur
 
 app = Flask(__name__)
 app.config['UPLOAD_FOLDER'] = '/static/uploads'
