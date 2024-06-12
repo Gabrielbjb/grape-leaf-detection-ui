@@ -2,7 +2,7 @@ from flask import *
 import os
 
 app = Flask(__name__)
-app.config['UPLOAD_FOLDER'] = 'C:/Users/Gabrielbjb/Downloads/pcd/static/uploads'
+app.config['UPLOAD_FOLDER'] = '/static/uploads'
 
 @app.route('/')
 def hello():
